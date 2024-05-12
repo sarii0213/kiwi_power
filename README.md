@@ -22,14 +22,14 @@ boolean display_body_fat "体脂肪率表示/非表示"
 periods {
 integer id PK
 integer user_id FK
-date start "生理開始日"
-date end "生理終了日"
+date started_on "生理開始日"
+date ended_on "生理終了日"
 }
 
 records {
 integer id PK
 integer user_id FK
-date date "体重計測日"
+date recorded_on "体重計測日"
 float weight "体重 (kg)"
 float body_fat "体脂肪率 (%)"
 }
@@ -37,7 +37,7 @@ float body_fat "体脂肪率 (%)"
 objectives {
 integer id PK
 integer user_id FK
-integer type "(enum) 0: image, 1: verbal"
+integer objective_type "(enum) 0: image, 1: verbal"
 string verbal "目標を言葉で表現したもの"
 text comment "目標についてのメモ"
 integer order "ビジョンボードでの表示順"
