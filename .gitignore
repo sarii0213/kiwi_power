@@ -39,6 +39,7 @@ frontend/next-env.d.ts
 
 # Ignore bundler config.
 backend/.bundle
+backend/vendor/bundle
 
 # Ignore the default SQLite database.
 backend/db/*.sqlite3
