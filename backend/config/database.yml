@@ -21,7 +21,11 @@ local: &local
 
 development:
   <<: *default
-  <<: *local
+  # <<: *local
+  port: 3306
+  host: db
+  username: root
+  password: password
   database: project_development
 
 # Warning: The database defined as "test" will be erased and

@@ -9,15 +9,11 @@ RUN gem install bundler --version "$BUNDLE_VERSION"
 RUN mkdir $APP
 WORKDIR $APP
 
-RUN bundle config set --local path 'vendor/bundle'
-
 COPY Gemfile* $APP/
 RUN bundle install
 
 COPY . $APP/
 
 RUN chmod +x ./bin/server-dev
-
-ENV PATH $APP/vendor/bundle/ruby/3.3.0/bin:$PATH
 
 CMD ["./bin/server-dev"]
