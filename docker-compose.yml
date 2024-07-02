@@ -4,6 +4,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password --sql_mode=""
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_HOST: '%'
     ports:
       - '3307:3306'
 
@@ -12,7 +13,7 @@ services:
       context: ./backend
     volumes:
       - ./backend:/usr/src/app
-      - ./vendor/bundle:/usr/src/app/vendor/bundle/
+      - bundle:/usr/local/bundle
     ports:
       - '8080:8080'
     depends_on:
@@ -34,3 +35,5 @@ services:
       - ./frontend:/usr/src/app
     ports:
       - '3003:3003'
+volumes:
+  bundle:
