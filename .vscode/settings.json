@@ -1,0 +1,9 @@
+{
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.fontSize": 12
+}
