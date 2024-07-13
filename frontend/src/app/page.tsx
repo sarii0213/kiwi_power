@@ -1,9 +1,10 @@
+"use client";
 import React from "react";
 import useSWR from "swr";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url: string | URL | Request) => fetch(url).then((res) => res.json());
 
-export default function App() {
+const Home = () => {
     const { data, error } = useSWR(
         "http://localhost:8080/api/v1/hello",
         fetcher
@@ -18,3 +19,4 @@ export default function App() {
         </div>
     )
 }
+export default Home;
