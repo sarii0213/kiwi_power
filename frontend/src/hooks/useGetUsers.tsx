@@ -9,15 +9,20 @@ const getUsers = async (url: string): Promise<GetUsersResponse> => {
 };
 
 type User = {
-  id: string;
+  id: number;
   username: string;
   email: string;
+  goal_weight: number;
 };
 
-type GetUsersResponse = User[];
+type GetUsersResponse = {
+    users: User[],
+    totalCount: number,
+    currentPage: number,
+}
 
 export const useGetUsers = () => {
-  const { data, error, isLoading } = useSWR("/api/v1/users", getUsers);
+  const { data, error, isLoading } = useSWR("/api/v1/users.json", getUsers);
 
   return { data, error, isLoading };
 };
