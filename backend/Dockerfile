@@ -3,7 +3,7 @@ FROM ruby:3.3.2
 ENV BUNDLE_VERSION 2.3.26
 ENV APP /usr/src/app
 
-RUN apt-get update && apt-get install -y netcat-openbsd vim
+RUN apt-get update && apt-get install -y netcat-openbsd vim default-mysql-client
 RUN gem install bundler --version "$BUNDLE_VERSION"
 
 RUN mkdir $APP

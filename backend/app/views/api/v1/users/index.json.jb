@@ -1,0 +1,15 @@
+json = {
+    total_count: @total_count,
+    current_page: @current_page,
+}
+
+json[:users] = @users.map do |user|
+  {
+    id: user.id,
+    username: user.username,
+    email: user.email,
+    goal_weight: user.goal_weight,
+  }
+end
+
+json
