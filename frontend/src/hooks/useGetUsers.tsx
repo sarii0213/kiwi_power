@@ -16,10 +16,10 @@ type User = {
 };
 
 type GetUsersResponse = {
-    users: User[],
-    totalCount: number,
-    currentPage: number,
-}
+  users: User[];
+  totalCount: number;
+  currentPage: number;
+};
 
 export const useGetUsers = () => {
   const { data, error, isLoading } = useSWR("/api/v1/users.json", getUsers);

@@ -1,9 +1,11 @@
+import React from "react";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "ビジョンボードページ",
-    description: "なりたい姿、理想の状態でやりたいことを具体化・視覚化",
-  };
+  title: "ビジョンボードページ",
+  description: "なりたい姿、理想の状態でやりたいことを具体化・視覚化",
+};
 
 const ObjectivesLayout = ({
   children, // will be a page or nested layout

@@ -1,9 +1,10 @@
+import React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "設定ページ",
-    description: "ユーザー設定",
-  };
+  title: "設定ページ",
+  description: "ユーザー設定",
+};
 
 const SettingsLayout = ({
   children, // will be a page or nested layout

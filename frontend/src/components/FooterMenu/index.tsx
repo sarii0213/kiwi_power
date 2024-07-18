@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -25,19 +25,12 @@ export const FooterMenu = () => {
                 pathname === item.href ? "opacity-100" : "opacity-40"
               }`}
             >
-              <Image
-                src={`/${item.icon}.svg`}
-                alt={item.icon}
-                width={20}
-                height={20}
-              />
-              <span className="text-sm dark:text-gray-400 font-medium">
-                {item.name}
-              </span>
+              <Image src={`/${item.icon}.svg`} alt={item.icon} width={20} height={20} />
+              <span className="text-sm dark:text-gray-400 font-medium">{item.name}</span>
             </Link>
           );
         })}
       </div>
     </nav>
   );
-}
+};

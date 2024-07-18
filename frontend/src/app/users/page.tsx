@@ -1,11 +1,12 @@
 "use client";
+import React from "react";
 import { useGetUsers } from "@/hooks/useGetUsers";
 
 interface User {
-    id: number;
-    username: string;
-    email: string;
-    goal_weight: number;
+  id: number;
+  username: string;
+  email: string;
+  goal_weight: number;
 }
 
 const Users: React.FC = () => {
@@ -23,10 +24,7 @@ const Users: React.FC = () => {
             <UserCard key={user.id} user={user} />
           ))}
 
-          <Pagination
-            totalCount={data.totalCount}
-            currentPage={data.currentPage}
-          />
+          <Pagination totalCount={data.totalCount} currentPage={data.currentPage} />
         </div>
       )}
     </div>
@@ -34,7 +32,7 @@ const Users: React.FC = () => {
 };
 
 interface UserCardProps {
-    user: User;
+  user: User;
 }
 
 const UserCard: React.FC<UserCardProps> = ({ user }) => (
@@ -47,8 +45,8 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => (
 );
 
 interface SummaryProps {
-    totalCount: number;
-    currentPage: number;
+  totalCount: number;
+  currentPage: number;
 }
 
 const Pagination: React.FC<SummaryProps> = ({ totalCount, currentPage }) => (
