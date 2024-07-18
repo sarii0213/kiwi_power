@@ -10,6 +10,9 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+    defaults:
+      run:
+        working-directory: ./frontend/
 
     steps:
       - name: checkout the pushed repo
@@ -32,8 +35,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: yarn install 
-     
+      - run: yarn install
+
       - name: run eslint
         run: yarn run eslint
 
@@ -45,7 +48,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['3.3']
+        ruby-version: ['3.3.2']
+    defaults:
+      run:
+        working-directory: ./backend/
 
     steps:
       - name: checkout the pushed repo
