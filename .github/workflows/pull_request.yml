@@ -35,7 +35,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: yarn install
+      - name: Install dependencies
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.19 --activate
+          yarn install
 
       - name: run eslint
         run: yarn run eslint-check
