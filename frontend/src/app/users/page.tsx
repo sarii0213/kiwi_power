@@ -24,10 +24,7 @@ const Users: React.FC = () => {
             <UserCard key={user.id} user={user} />
           ))}
 
-          <Pagination
-            totalCount={data.totalCount}
-            currentPage={data.currentPage}
-          />
+          <Pagination totalCount={data.totalCount} currentPage={data.currentPage} />
         </div>
       )}
     </div>

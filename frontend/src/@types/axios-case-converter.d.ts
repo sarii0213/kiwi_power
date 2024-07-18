@@ -8,7 +8,7 @@ declare module "axios-case-converter" {
 
   export default function applyCaseMiddleWare(
     axios: AxiosInstance,
-    options?: Options,
+    options?: Options
   ): AxiosInstance;
 }
 /* eslint-enable */
