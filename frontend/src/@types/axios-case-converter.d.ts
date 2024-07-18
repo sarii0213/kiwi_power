@@ -1,3 +1,4 @@
+/* eslint-disable */
 declare module "axios-case-converter" {
   import { AxiosInstance, AxiosRequestConfig } from "axios";
 
@@ -10,3 +11,4 @@ declare module "axios-case-converter" {
     options?: Options,
   ): AxiosInstance;
 }
+/* eslint-enable */
