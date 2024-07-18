@@ -31,6 +31,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      - run: yarn install 
      
       - name: run eslint
         run: yarn run eslint
@@ -56,6 +58,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
+          working-directory: ./backend/
 
       - name: install mysql client
         run: |
