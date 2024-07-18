@@ -10,9 +10,6 @@ permissions: read-all
 jobs:
   check_nextjs:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
     defaults:
       run:
         working-directory: ./frontend/
@@ -26,8 +23,8 @@ jobs:
       - name: setup yarn with cache management
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+          node-version: "18.18.0"
           cache-dependency-path: ./frontend/yarn.lock
 
       - name: cache node_modules
