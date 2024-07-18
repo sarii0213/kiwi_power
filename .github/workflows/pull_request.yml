@@ -1,0 +1,64 @@
+name: pull request checks
+
+on: [pull_request]
+
+permissions: read-all
+
+jobs:
+  check_nextjs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
+
+    steps:
+      - name: checkout the pushed repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: 'false'
+
+      - name: setup yarn with cache management
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+     
+      - name: run eslint
+        run: yarn run eslint
+
+      - name: run prettier
+        run: yarn run prettier . --check
+          
+
+  check_rails:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['3.3']
+
+    steps:
+      - name: checkout the pushed repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: 'false'
+
+      - name: setup ruby with cache management
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: install mysql client
+        run: |
+          sudo apt-get update
+          sudo apt-get install libmysqlclient-dev
+
+      - run: bundle exec rubocop
