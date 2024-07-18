@@ -40,4 +40,4 @@ export const FooterMenu = () => {
       </div>
     </nav>
   );
-}
+};

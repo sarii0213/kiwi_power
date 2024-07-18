@@ -8,3 +8,8 @@ AllCops:
     - "bin/*"
     - "node_modules/**/*"
     - "lib/**/*"
+
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false

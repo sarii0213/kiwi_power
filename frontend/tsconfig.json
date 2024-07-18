@@ -23,7 +23,6 @@
     "baseUrl": ".",
     "sourceMap": true, //検証ツールでtsのコードのデバッグか可能に
     "typeRoots": ["./node_modules/@types", "./src/@types"]
-    
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
