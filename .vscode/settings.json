@@ -10,8 +10,8 @@
     "editor.formatOnSave": false
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "always",
+    "source.fixAll.stylelint": "always"
   },
   "eslint.validate": ["html", "javascriptreact", "typescriptreact"],
   "css.validate": false,

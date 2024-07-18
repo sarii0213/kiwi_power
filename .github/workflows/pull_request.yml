@@ -38,10 +38,10 @@ jobs:
       - run: yarn install
 
       - name: run eslint
-        run: yarn run eslint
+        run: yarn run eslint-check
 
       - name: run prettier
-        run: yarn run prettier . --check
+        run: yarn run prettier-check
           
 
   check_rails:
