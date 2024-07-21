@@ -16,6 +16,9 @@ ActiveRecord::Schema[7.1].define(version: 0) do
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.float "goal_weight"
+    t.float "height"
+    t.boolean "display_body_fat", default: false
+    t.boolean "display_period", default: false
     t.datetime "updated_at"
     t.datetime "created_at"
   end

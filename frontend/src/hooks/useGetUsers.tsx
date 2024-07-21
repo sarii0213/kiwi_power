@@ -12,7 +12,10 @@ type User = {
   id: number;
   username: string;
   email: string;
-  goal_weight: number;
+  goalWeight: number;
+  height: number;
+  displayBodyFat: boolean;
+  displayPeriod: boolean;
 };
 
 type GetUsersResponse = {
@@ -22,7 +25,7 @@ type GetUsersResponse = {
 };
 
 export const useGetUsers = () => {
-  const { data, error, isLoading } = useSWR("/api/v1/users.json", getUsers);
+  const { data, error, isLoading } = useSWR("/api/v1/users", getUsers);
 
   return { data, error, isLoading };
 };

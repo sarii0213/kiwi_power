@@ -6,7 +6,10 @@ interface User {
   id: number;
   username: string;
   email: string;
-  goal_weight: number;
+  goalWeight: number;
+  height: number;
+  displayBodyFat: boolean;
+  displayPeriod: boolean;
 }
 
 const Users: React.FC = () => {
@@ -40,7 +43,10 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => (
     <p>ID: {user.id}</p>
     <p>username: {user.username}</p>
     <p>email: {user.email}</p>
-    <p>goal weight: {user.goal_weight}</p>
+    <p>goal weight: {user.goalWeight}</p>
+    <p>height: {user.height}</p>
+    <p>display body fat: {user.displayBodyFat ? 'on': 'off'}</p>
+    <p>display period: {user.displayPeriod ? 'on' : 'off'}</p>
   </div>
 );
 

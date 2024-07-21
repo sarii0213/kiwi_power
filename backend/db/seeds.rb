@@ -7,15 +7,21 @@
 #   Character.create(name: "Luke", movie: movies.first)
 User.create!(
   [{
+    display_body_fat: true,
+    display_period: true,
     email: 'user01@example.com',
     encrypted_password: 'xxx',
     goal_weight: '60.0',
+    height: '160',
     username: 'user01',
   }, 
   {
+    display_body_fat: false,
+    display_period: false,
     email: 'user02@example.com',
     encrypted_password: 'yyy',
     goal_weight: '70.0',
+    height: '160',
     username: 'user02',
   }] 
 )

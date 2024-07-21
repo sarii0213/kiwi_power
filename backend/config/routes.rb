@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :api, default: { format: 'json' } do
     namespace :v1 do
       get 'hello', to: 'hello#index'
-      resources :users
+      resources :users, defaults: { format: :json }
     end
   end  
 end
