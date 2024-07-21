@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-json = {
-    username: @user.username,
-    email: @user.email,
-    goal_weight: @user.goal_weight,
-    height: @user.height,
-    display_body_fat: @user.display_body_fat,
-    display_period: @user.display_period,
+{
+  username: @user.username,
+  email: @user.email,
+  goal_weight: @user.goal_weight,
+  height: @user.height,
+  display_body_fat: @user.display_body_fat,
+  display_period: @user.display_period
 }

@@ -45,8 +45,8 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => (
     <p>email: {user.email}</p>
     <p>goal weight: {user.goalWeight}</p>
     <p>height: {user.height}</p>
-    <p>display body fat: {user.displayBodyFat ? 'on': 'off'}</p>
-    <p>display period: {user.displayPeriod ? 'on' : 'off'}</p>
+    <p>display body fat: {user.displayBodyFat ? "on" : "off"}</p>
+    <p>display period: {user.displayPeriod ? "on" : "off"}</p>
   </div>
 );
 

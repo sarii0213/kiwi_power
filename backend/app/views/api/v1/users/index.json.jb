@@ -13,7 +13,7 @@ json[:users] = @users.map do |user|
     goal_weight: user.goal_weight,
     height: user.height,
     display_body_fat: user.display_body_fat,
-    display_period: user.display_period,
+    display_period: user.display_period
   }
 end
 

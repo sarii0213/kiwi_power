@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -15,9 +17,9 @@
 #
 FactoryBot.define do
   factory :user do
-    email {Faker::Internet.email}
-    encrypted_password {Faker::Internet.password(min_length: 6)}
-    goal_weight {rand(40.0..80.0)}
-    username {Faker::JapaneseMedia::StudioGhibli.unique.character}
+    email { Faker::Internet.email }
+    encrypted_password { Faker::Internet.password(min_length: 6) }
+    goal_weight { rand(40.0..80.0) }
+    username { Faker::JapaneseMedia::StudioGhibli.unique.character }
   end
 end

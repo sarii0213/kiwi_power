@@ -2,16 +2,6 @@
 import React from "react";
 import { useGetUser } from "@/hooks/useGetUser";
 
-interface User {
-  id: number;
-  username: string;
-  email: string;
-  goalWeight: number;
-  height: number;
-  displayBodyFat: boolean;
-  displayPeriod: boolean;
-}
-
 const Settings = () => {
   const { data, error, isLoading } = useGetUser();
 
@@ -28,20 +18,19 @@ const Settings = () => {
               <li>ログイン情報: 🚧</li>
               <li>目標体重: {data.goalWeight} kg</li>
               <li>身長: {data.height} cm</li>
-              <li>生理期間:  🚧</li>
+              <li>生理期間: 🚧</li>
             </ul>
           </div>
 
           <h2 className="text-xl p-3 mt-6">表示設定</h2>
           <div className="">
             <ul>
-              <li>体脂肪率 表示: {data.displayBodyFat ? 'ON' : 'OFF'}</li>
-              <li>生理期間 表示: {data.displayPeriod ? 'ON' : 'OFF'}</li>
+              <li>体脂肪率 表示: {data.displayBodyFat ? "ON" : "OFF"}</li>
+              <li>生理期間 表示: {data.displayPeriod ? "ON" : "OFF"}</li>
             </ul>
           </div>
         </div>
       )}
-      
     </div>
   );
 };
