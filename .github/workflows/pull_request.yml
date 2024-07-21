@@ -55,6 +55,12 @@ jobs:
     defaults:
       run:
         working-directory: ./backend/
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
     steps:
       - name: checkout the pushed repo
@@ -69,9 +75,12 @@ jobs:
           bundler-cache: true
           working-directory: ./backend/
 
-      - name: install mysql client
-        run: |
-          sudo apt-get update
-          sudo apt-get install libmysqlclient-dev
-
       - run: bundle exec rubocop
+
+      - name: DB create and migrate
+        run: |
+          cp config/database.yml.ci config/database.yml
+          bundle exec rails db:create RAILS_ENV=test
+          bundle exec rails db:migrate RAILS_ENV=test
+
+      - run: bundle exec rspec
