@@ -88,7 +88,8 @@ jobs:
             echo 'waiting for mysql...'
             sleep 5
           done
-        - run: bundle exec rubocop
+        
+      - run: bundle exec rubocop
 
       - name: DB create and migrate
         env:
