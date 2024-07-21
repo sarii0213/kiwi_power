@@ -82,12 +82,20 @@ jobs:
           bundler-cache: true
           working-directory: ./backend/
 
-      - run: bundle exec rubocop
+      - name: Wait for MySQL
+        run: |
+          until mysqladmin ping -h 127.0.0.1 --silent; do
+            echo 'waiting for mysql...'
+            sleep 5
+          done
+        - run: bundle exec rubocop
 
       - name: DB create and migrate
         env:
           RAILS_ENV: test
-          APP_DB_HOST: 127.0.0.1
-        run: bundle exec rails db:create db:schema:load
+          DB_HOST: 127.0.0.1
+        run: |
+          cp config/database.yml.ci config/database.yml
+          bundle exec rails db:create db:schema:load
 
       - run: bundle exec rspec
