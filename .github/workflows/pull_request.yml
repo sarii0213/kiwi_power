@@ -59,13 +59,7 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_DATABASE: project_test
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-        options: >-
-          --health-cmd "mysqladmin ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
         ports:
           - 3306:3306
 
@@ -94,7 +88,6 @@ jobs:
       - name: DB create and migrate
         env:
           RAILS_ENV: test
-          DB_HOST: 127.0.0.1
         run: |
           cp config/database.yml.ci config/database.yml
           bundle exec rails db:create db:schema:load
