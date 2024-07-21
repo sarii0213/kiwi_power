@@ -59,7 +59,13 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: project_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+        options: >-
+          --health-cmd "mysqladmin ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
         ports:
           - 3306:3306
 
@@ -79,9 +85,9 @@ jobs:
       - run: bundle exec rubocop
 
       - name: DB create and migrate
-        run: |
-          cp config/database.yml.ci config/database.yml
-          bundle exec rails db:create RAILS_ENV=test
-          bundle exec rails db:migrate RAILS_ENV=test
+        env:
+          RAILS_ENV: test
+          APP_DB_HOST: 127.0.0.1
+        run: bundle exec rails db:create db:schema:load
 
       - run: bundle exec rspec
