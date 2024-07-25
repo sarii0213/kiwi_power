@@ -15,5 +15,11 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #
-class User < ApplicationRecord
+FactoryBot.define do
+  factory :user do
+    email { Faker::Internet.email }
+    encrypted_password { Faker::Internet.password(min_length: 6) }
+    goal_weight { rand(40.0..80.0) }
+    username { Faker::JapaneseMedia::StudioGhibli.unique.character }
+  end
 end

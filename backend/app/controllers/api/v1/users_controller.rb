@@ -8,6 +8,11 @@ module Api
         @total_count = @users.count
         @current_page = @users.page(params[:page]).current_page
       end
+
+      def show
+        # TODO: ログイン機能実装後, ユーザー特定方法をparamsではなくcurrent_user取得に修正
+        @user = User.find(params[:id])
+      end
     end
   end
 end

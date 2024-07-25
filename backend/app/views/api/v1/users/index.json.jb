@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
-json = {
+{
   total_count: @total_count,
-  current_page: @current_page
+  current_page: @current_page,
+  users: @users.map { |user| render 'api/v1/users/user', user: }
 }
-
-json[:users] = @users.map do |user|
-  {
-    id: user.id,
-    username: user.username,
-    email: user.email,
-    goal_weight: user.goal_weight
-  }
-end
-
-json
