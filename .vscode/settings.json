@@ -16,4 +16,10 @@
   "eslint.validate": ["html", "javascriptreact", "typescriptreact"],
   "css.validate": false,
   "scss.validate": false,
+  "rubyLsp.rubyVersionManager": "none",
+  "rubyLsp.formatter": "rubocop",
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true
+  },
 }
