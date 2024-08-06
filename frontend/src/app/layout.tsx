@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Favicon from "/public/favicon.ico";
 import { FooterMenu } from "src/components/FooterMenu";
+import { Box } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,10 +29,10 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="w-[600px] mx-auto text-center">
+        <Box sx={{ pb: 7 }} display="flex" justifyContent="center">
           {children}
-          <FooterMenu />
-        </div>
+        </Box>
+        <FooterMenu />
       </body>
     </html>
   );
