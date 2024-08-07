@@ -1,11 +1,8 @@
 {
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.fontSize": 12,
+  "editor.fontSize": 15,
   "[markdown]": {
     "editor.formatOnSave": false
   },
@@ -16,10 +13,13 @@
   "eslint.validate": ["html", "javascriptreact", "typescriptreact"],
   "css.validate": false,
   "scss.validate": false,
-  "rubyLsp.rubyVersionManager": "none",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "none"
+  },
   "rubyLsp.formatter": "rubocop",
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true
   },
+  "files.insertFinalNewline": true,
 }

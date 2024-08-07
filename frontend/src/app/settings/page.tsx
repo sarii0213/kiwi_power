@@ -12,7 +12,7 @@ const Settings = () => {
     <div>
       {userData && (
         <div>
-          <h2 className="text-xl p-3">ユーザー設定</h2>
+          <h1 className="">ユーザー設定</h1>
           <div className="">
             <ul>
               <li>ログイン情報: 🚧</li>
@@ -22,7 +22,7 @@ const Settings = () => {
             </ul>
           </div>
 
-          <h2 className="text-xl p-3 mt-6">表示設定</h2>
+          <h1 className="">表示設定</h1>
           <div className="">
             <ul>
               <li>体脂肪率 表示: {userData.displayBodyFat ? "ON" : "OFF"}</li>

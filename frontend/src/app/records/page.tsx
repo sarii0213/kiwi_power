@@ -3,7 +3,7 @@ import React from "react";
 const Records = () => {
   return (
     <div>
-      <h1 className="text-xl p-3">Records Page</h1>
+      <h1 className="">Records Page</h1>
     </div>
   );
 };
