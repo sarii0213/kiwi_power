@@ -38,5 +38,8 @@ test:
 
 production:
   <<: *default
-  <<: *local
-  socket: /tmp/mysql.sock
+  host: mysql-fly-misty-moon-2068.internal
+  port: 3306
+  username: root
+  password: password
+  database: project_production
