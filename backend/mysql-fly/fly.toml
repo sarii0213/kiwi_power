@@ -1,0 +1,36 @@
+# fly.toml app configuration file generated for mysql-fly-kiwi-power on 2024-08-12T11:24:52+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'mysql-fly-kiwi-power'
+primary_region = 'nrt'
+
+[build]
+  dockerfile = "./Dockerfile"
+
+[http_service]
+  internal_port = 3306
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+[[vm]]
+  memory = '2gb' # デプロイ時にメモリ不足になる可能性があるため、1GBに設定
+  cpu_kind = 'shared'
+  cpus = 1
+
+
+[processes]
+  app = """--datadir /data/mysql \
+    --default-authentication-plugin mysql_native_password"""
+
+[mounts]
+  source = "mysqldata"
+  destination = "/data"
+
+[env]
+  MYSQL_DATABASE = "project_production"
+  MYSQL_USER = "user"
