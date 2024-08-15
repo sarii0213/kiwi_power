@@ -7,11 +7,14 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "localhost:3003", "https://kiwi-power.vercel.app"
+    origins "localhost:3003",
+            "https://kiwi-power.vercel.app",
+            /\Ahttps:\/\/kiwi-power-[a-z0-9]{9}-sariis-projects\.vercel\.app\z/
 
     resource "*",
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      credentials: true
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      credentials: true,
+      max_age: 86400
   end
 end
