@@ -38,5 +38,9 @@ test:
 
 production:
   <<: *default
-  <<: *local
-  socket: /tmp/mysql.sock
+  host: mysql-fly-kiwi-power.internal
+  port: 3306
+  username: non_root_user
+  password: password
+  database: some_db
+

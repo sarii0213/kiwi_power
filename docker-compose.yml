@@ -43,8 +43,8 @@ services:
       - type: bind
         source: ./frontend
         target: /usr/src/app
-      - type: volume
-        source: node_modules
+      - type: bind
+        source: ./frontend/node_modules
         target: /usr/src/app/node_modules
     ports:
       - '3003:3003'
