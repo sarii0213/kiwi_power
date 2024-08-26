@@ -1,40 +1,62 @@
-"use client";
-import useSWR from "swr";
 import { apiClient } from "@/libs/apiClient";
+import useSWRMutation from "swr/mutation";
 
 type CreateUserRequest = {
-    email: string;
-    password: string;
-    password_confirmation: string;
-    username: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+  username: string;
 };
 
 type CreateUserResponse = {
-    data: {
-        email: string;
-        provider: string;
-        uid: string;
-        id: number;
-        username: string;
-        allow_password_change: boolean;
-        goal_weight: null;
-        height: null;
-        display_body_fat: boolean;
-        display_period: boolean;
-    };
+  data: {
+    email: string;
+    provider: string;
+    uid: string;
+    id: number;
+    username: string;
+    allow_password_change: boolean;
+    goal_weight: null;
+    height: null;
+    display_body_fat: boolean;
+    display_period: boolean;
+  };
 };
 
-const createUser = async (url: string, userData: CreateUserRequest): Promise<CreateUserResponse> => {
-  const client = apiClient();
-  const { data } = await client.post<CreateUserResponse>(url, userData);
+const createUser = async (
+  url: string,
+  { arg }: { arg: CreateUserRequest }
+): Promise<CreateUserResponse> => {
+  // const client = apiClient();
+  // const { data } = await client.post<CreateUserResponse>(url, arg);
+
+  console.log(url, arg);
+
+  const data = await new Promise<CreateUserResponse>((resolve) => {
+    setTimeout(() => {
+      resolve({
+        data: {
+          email: "aaa",
+          provider: "email",
+          uid: "aaa",
+          id: 1,
+          username: "aaa",
+          allow_password_change: false,
+          goal_weight: null,
+          height: null,
+          display_body_fat: false,
+          display_period: false,
+        },
+      });
+    }, 2000);
+  });
   return data;
 };
 
-
 export const useCreateUser = () => {
-  const { data, error, isLoading } = useSWR(`/api/v1/auth`, createUser);
+  const { trigger, isMutating } = useSWRMutation("users", createUser);
 
-  return { data, error, isLoading };
+  return { trigger, isMutating };
 };
 
 // ➜ curl localhost:8080/api/v1/auth -X POST -d '{"email": "test@example.com", "password": "password", "password_confirmation": "password", "username": "test"}' -H "content-type:application/json" -i
