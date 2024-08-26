@@ -1,8 +1,11 @@
 # frozen_string_literal: true
+# TODO: 不要なので削除？
 
 module Api
   module V1
     class UsersController < Api::V1::ApiController
+      before_action :authenticate_user!
+
       def index
         @users = User.page(params[:page])
         @total_count = @users.count
@@ -10,7 +13,6 @@ module Api
       end
 
       def show
-        # TODO: ログイン機能実装後, ユーザー特定方法をparamsではなくcurrent_user取得に修正
         @user = User.find(params[:id])
       end
     end
