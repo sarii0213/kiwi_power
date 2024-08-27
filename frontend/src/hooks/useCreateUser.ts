@@ -1,7 +1,7 @@
 import { apiClient } from "@/libs/apiClient";
 import useSWRMutation from "swr/mutation";
 
-type CreateUserRequest = {
+export type CreateUserRequest = {
   email: string;
   password: string;
   password_confirmation: string;
@@ -30,8 +30,8 @@ const createUser = async (
   // const client = apiClient();
   // const { data } = await client.post<CreateUserResponse>(url, arg);
 
-  console.log(url, arg);
-
+  console.log(url);
+  console.log(arg);
   const data = await new Promise<CreateUserResponse>((resolve) => {
     setTimeout(() => {
       resolve({
